@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieById } from '../service.js/MovieService';
 import Error from '../components/Error';
+import Loader from '../components/Loader';
 
 const flagMap = {
   AZ: '/icons/azerbaijan.png',
@@ -13,13 +14,28 @@ const flagMap = {
 
 function Details() {
   const { id } = useParams();
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    getMovieById(id).then((item) => setMovie(item));
+    setError(false);
+    setMovie(null);
+
+    getMovieById(id)
+      .then((item) => {
+        if (item) {
+          setMovie(item);
+        } else {
+          setError(true); 
+        }
+      })
+      .catch(() => {
+        setError(true); 
+      });
   }, [id]);
 
-  if (!movie) return <Error />;
+   if (error) return <Error />;
+   if (movie === null) return <Loader />;
 
 return (
   <div className="bg-[#373737] text-white py-35">
