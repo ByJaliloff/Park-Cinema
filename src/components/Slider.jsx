@@ -19,11 +19,9 @@ function Slider() {
   const startX = useRef(0);
   const containerRef = useRef(null);
 
-
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % slides.length);
   };
-
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
@@ -34,19 +32,17 @@ function Slider() {
     startX.current = e.clientX;
   };
 
-
   const onMouseMove = (e) => {
     if (!dragging) return;
     const diff = e.clientX - startX.current;
     setDragOffset(diff);
   };
 
-
   const onMouseUp = () => {
     if (!dragging) return;
     setDragging(false);
 
-    const threshold = 100; 
+    const threshold = 100;
     if (dragOffset < -threshold) {
       nextSlide();
     } else if (dragOffset > threshold) {
@@ -54,7 +50,6 @@ function Slider() {
     }
     setDragOffset(0);
   };
-
 
   const onMouseLeave = () => {
     if (!dragging) return;
@@ -67,16 +62,15 @@ function Slider() {
 
   let opacityPrev = 0;
   let opacityCurrent = 1;
+  let opacityNext = 0; 
 
   const absOffset = Math.min(Math.abs(dragOffset), 150);
-  const ratio = absOffset / 150; 
+  const ratio = absOffset / 150;
 
   if (dragOffset < 0) {
-
     opacityCurrent = 1 - ratio;
     opacityNext = ratio;
   } else if (dragOffset > 0) {
-
     opacityCurrent = 1 - ratio;
     opacityPrev = ratio;
   }
@@ -90,7 +84,6 @@ function Slider() {
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseLeave}
     >
-
       <img
         src={slides[current]}
         alt={`slide-${current}`}
@@ -109,7 +102,6 @@ function Slider() {
         />
       )}
 
-
       {dragOffset > 0 && (
         <img
           src={slides[prevIndex]}
@@ -124,12 +116,17 @@ function Slider() {
 
       <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
 
-
       <button
         onClick={nextSlide}
         className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/40 hover:bg-black/70 p-2 rounded-full text-white z-20"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
