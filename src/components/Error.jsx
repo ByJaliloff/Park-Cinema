@@ -4,7 +4,7 @@ function Error() {
   return (
     <div
       className="w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-white px-4"
-      style={{ backgroundImage: 'url(/images/404.png)' }} // Şəklin yolunu uyğun dəyiş
+      style={{ backgroundImage: 'url(/images/404.png)' }}
     >
       <h1 className="text-5xl font-bold mb-4">404</h1>
       <p className="text-xl mb-6">Səhifə tapılmadı</p>
