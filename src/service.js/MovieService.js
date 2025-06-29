@@ -25,4 +25,16 @@ async function getMovieById(id) {
   }
 }
 
-export { getAllMovies, getMovieById};
+
+async function getAllTheatres() {
+  try {
+    const res = await fetch(`${BASE_URL}/theatre`);
+    if (!res.ok) throw new Error("fetch emeliyyatinda xeta bas verdi");
+    const theatres = await res.json();
+    return theatres;
+  } catch (err) {
+    console.error(err.message || 'fetch emeliyyatinda xeta bas verdi');
+  }
+}
+
+export { getAllMovies, getMovieById, getAllTheatres};
