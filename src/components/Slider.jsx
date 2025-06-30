@@ -62,7 +62,7 @@ function Slider() {
 
   let opacityPrev = 0;
   let opacityCurrent = 1;
-  let opacityNext = 0; 
+  let opacityNext = 0;
 
   const absOffset = Math.min(Math.abs(dragOffset), 150);
   const ratio = absOffset / 150;
@@ -84,6 +84,7 @@ function Slider() {
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseLeave}
     >
+
       <img
         src={slides[current]}
         alt={`slide-${current}`}
@@ -91,6 +92,7 @@ function Slider() {
         style={{ opacity: opacityCurrent }}
         draggable={false}
       />
+
 
       {dragOffset < 0 && (
         <img
@@ -102,6 +104,7 @@ function Slider() {
         />
       )}
 
+
       {dragOffset > 0 && (
         <img
           src={slides[prevIndex]}
@@ -112,16 +115,22 @@ function Slider() {
         />
       )}
 
+
       <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
+
 
       <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
 
+
+      <div className="h-full w-28 bg-no-repeat bg-contain bg-center bg-[url('/images/nav-bg.svg')] absolute -right-8 top-1/2 transform -translate-y-1/2 opacity-70 max-sm:w-16 max-xs:w-24 z-[10] pointer-events-none" />
+
+
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/40 hover:bg-black/70 p-2 rounded-full text-white z-20"
+        className="absolute top-1/2 right-1 -translate-y-1/2  px-4 py-3 text-white z-[20]" 
       >
         <svg
-          className="w-6 h-6"
+          className="w-13 h-13 " 
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -130,6 +139,7 @@ function Slider() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
+
     </div>
   );
 }
