@@ -1,9 +1,14 @@
 import { useContext } from 'react';
 import { MovieContext } from '../context/DataContext';
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 function Treyler() {
     const { data } = useContext(MovieContext);
+
+       if (!data) {
+        return <Loader />;}
+   
     const trailerMovies = data.filter(movie => movie.youtubeUrl);
 
 
