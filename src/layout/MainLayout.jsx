@@ -13,6 +13,7 @@ function MainLayout() {
     <main>
         {loader ? <Loader /> : <Outlet />}
     </main>
+    <Footer />
     </>
   )
 }
