@@ -8,8 +8,7 @@ const flagMap = {
   AZ: '/icons/azerbaijan.png',
   RU: '/icons/russia.png',
   EN: '/icons/united-kingdom.png',
-  TR: '/icons/turkey.png',
-  US: '/icons/united-states.png'
+  TR: '/icons/turkey.png'
 };
 
 function Details() {
