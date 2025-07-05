@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Details from "./pages/Details"
 import Error from "./components/Error"
 import Treyler from "./pages/Treyler"
+import BuyTicket from "./pages/BuyTicket"
 
 
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="movies/:id" element={<Details />} />
+          <Route path="buy-ticket/:sessionId" element={<BuyTicket />} />
         </Route>
         <Route path="/treyler" element={<Treyler />} />
         <Route path="*" element={<Error />} />
