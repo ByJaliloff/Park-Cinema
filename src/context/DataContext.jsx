@@ -22,16 +22,19 @@ function DataContext({ children }) {
       .finally(() => setLoader(false));
   }, []);
 
-  const obj = {
-    data,
-    theatres,
-    error,
-    loader,
-    selectedTheatre,
-    setSelectedTheatre,
-    selectedLanguage,
-    setSelectedLanguage,
-  };
+const obj = {
+  data,
+  setData,
+  theatres,
+  setTheatres,
+  error,
+  loader,
+  selectedTheatre,
+  setSelectedTheatre,
+  selectedLanguage,
+  setSelectedLanguage,
+};
+
 
   return (
     <MovieContext.Provider value={obj}>

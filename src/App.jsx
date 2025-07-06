@@ -5,6 +5,8 @@ import Details from "./pages/Details"
 import Error from "./components/Error"
 import Treyler from "./pages/Treyler"
 import BuyTicket from "./pages/BuyTicket"
+import AdminLayout from "./layout/AdminLayout"
+import Admin from "./pages/Admin"
 
 
 
@@ -20,6 +22,10 @@ function App() {
         </Route>
         <Route path="/treyler" element={<Treyler />} />
         <Route path="*" element={<Error />} />
+
+        <Route path="/admin" element={<AdminLayout />}>
+           <Route index element={<Admin />} />
+        </Route>
       </Routes>
 
     </>
