@@ -33,11 +33,31 @@ function Header() {
 
         <nav className="hidden md:flex font-medium">
           <ul className="flex items-center gap-[40px]">
-            <a href="#" className="hover:text-red-500 transition">Kinoteatrlar</a>
-            <a href="#" className="hover:text-red-500 transition">Aksiyalar</a>
-            <a href="#" className="hover:text-red-500 transition">FAQ</a>
-            <a href="#" className="hover:text-red-500 transition">Əlaqə</a>
-            <a href="#" className="hover:text-red-500 transition">Profil</a>
+            <li>
+              <Link to="/kinoteatrlar" className="hover:text-red-500 transition">
+                Kinoteatrlar
+              </Link>
+            </li>
+            <li>
+              <Link to="/aksiyalar" className="hover:text-red-500 transition">
+                Aksiyalar
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className="hover:text-red-500 transition">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link to="/elaqe" className="hover:text-red-500 transition">
+                Əlaqə
+              </Link>
+            </li>
+            <li>
+              <Link to="/profil" className="hover:text-red-500 transition">
+                Profil
+              </Link>
+            </li>
           </ul>
         </nav>
 
