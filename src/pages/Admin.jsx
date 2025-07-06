@@ -38,7 +38,7 @@ const handleDelete = async (id) => {
   if (result.isConfirmed) {
     try {
       await deleteMovie(id);
-      setData(prev => prev.filter(movie => String(movie.id) !== String(id)));
+      setData(data.filter(item => item.id !== id));
       Swal.fire("Silindi!", "Film uğurla silindi.", "success");
     } catch (err) {
       Swal.fire("Xəta!", "Silinmə zamanı xəta baş verdi!", "error");
