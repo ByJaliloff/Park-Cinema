@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
+
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +9,8 @@ function Header() {
     code: 'AZE',
     icon: '/icons/azerbaijan.png'
   });
+
+  const navigate = useNavigate();
 
   const languages = [
     { code: 'AZE', icon: '/icons/azerbaijan.png' },
@@ -20,7 +23,7 @@ function Header() {
     setIsOpen(false);
     console.log("Seçilen dil:", lang.code);
   };
-
+  
   return (
     <header className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
       <div className="max-w-[93%] mx-auto h-[85px] flex items-center justify-between">
@@ -54,9 +57,12 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link to="/profil" className="hover:text-red-500 transition">
+              <button
+                onClick={() => navigate("/register/signup")}
+                className="hover:text-red-500 transition"
+              >
                 Profil
-              </Link>
+              </button>
             </li>
           </ul>
         </nav>

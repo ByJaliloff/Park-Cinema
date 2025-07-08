@@ -1,3 +1,5 @@
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route, Navigate } from "react-router"
 import MainLayout from "./layout/MainLayout"
 import Home from "./pages/Home"
@@ -11,12 +13,17 @@ import Contact from "./pages/Contact"
 import Faq from "./pages/Faq"
 import Aksiyalar from "./pages/Aksiyalar"
 import Kinoteatrlar from "./pages/Kinoteatrlar"
+import RegisterLayout from "./layout/RegisterLayout"
+import SignUp from "./pages/SignUp"
+import Login from "./pages/Login";
 
 
 
 function App() {
   return (
     <>
+    <ToastContainer position="top-right" autoClose={3000} />
+
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/" element={<MainLayout />}>
@@ -34,6 +41,11 @@ function App() {
 
         <Route path="/admin" element={<AdminLayout />}>
            <Route index element={<Admin />} />
+        </Route>
+
+        <Route path="/register" element={<RegisterLayout />}>
+        <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<Login />} />
         </Route>
       </Routes>
 
