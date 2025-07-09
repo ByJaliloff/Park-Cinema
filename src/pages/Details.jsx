@@ -98,7 +98,7 @@ function Details() {
           </div>
 
           <div className="pt-6 text-[#D9DADB]">
-            <p className="text-[16px] leading-6">{movie.description.slice(0, 700)}</p>
+            <p className="text-[16px] leading-6">{movie.description.slice(0, 695)}</p>
           </div>
         </div>
 
