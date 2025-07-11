@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
-
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +8,7 @@ function Header() {
     code: 'AZE',
     icon: '/icons/azerbaijan.png'
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,16 +18,29 @@ function Header() {
     { code: 'RUS', icon: '/icons/russia.png' }
   ];
 
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user); 
+  }, []);
+
   const handleSelect = (lang) => {
     setSelectedLang(lang);
     setIsOpen(false);
     console.log("Seçilen dil:", lang.code);
   };
-  
+
+  const handleProfileClick = () => {
+    if (isLoggedIn) {
+      navigate("/profil");
+    } else {
+      navigate("/register/signup");
+    }
+  };
+
   return (
     <header className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
       <div className="max-w-[93%] mx-auto h-[85px] flex items-center justify-between">
-
+        
         <div className="flex items-center space-x-2">
           <Link to="/">
             <img src={logo} alt="Logo" className="w-[150px] h-[80px]" />
@@ -58,7 +71,7 @@ function Header() {
             </li>
             <li>
               <button
-                onClick={() => navigate("/register/signup")}
+                onClick={handleProfileClick}
                 className="hover:text-red-500 transition"
               >
                 Profil

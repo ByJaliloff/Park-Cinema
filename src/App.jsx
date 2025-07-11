@@ -16,6 +16,7 @@ import Kinoteatrlar from "./pages/Kinoteatrlar"
 import RegisterLayout from "./layout/RegisterLayout"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login";
+import Profil from "./pages/Profil";
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="elaqe" element={<Contact />} />
           <Route path="aksiyalar" element={<Aksiyalar />} />
           <Route path="kinoteatrlar" element={<Kinoteatrlar />} />
+          <Route path="profil" element={<Profil />} />
         </Route>
 
         <Route path="/treyler" element={<Treyler />} />
