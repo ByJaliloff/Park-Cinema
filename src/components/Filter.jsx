@@ -50,12 +50,14 @@ function Filter() {
   return (
     <div className="text-white px-6 py-6 space-y-6">
       <div className="flex justify-evenly items-center text-[30px] font-semibold">
-        <button
-          onClick={() => setActiveView('Siyahı')}
-          className={`transition-all ${activeView === 'Siyahı' ? 'text-white drop-shadow-glow' : 'text-gray-400'}`}
-        >
-          Siyahı
-        </button>
+              <button
+                    onClick={() => setActiveView('Siyahı')}
+                    className={`transition-all ${activeView === 'Siyahı' ? 'text-[#d9dadb]' : 'text-gray-400'}`}
+                    style={activeView === 'Siyahı' ? { textShadow: '0px 0px 14px #fff' } : {}}
+              >
+                   Siyahı
+              </button>
+
         <Link
           to="/treyler"
           onClick={() => setActiveView('Treyler')}

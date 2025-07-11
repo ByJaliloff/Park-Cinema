@@ -30,7 +30,7 @@ function Treyler() {
 
       <div className="fixed top-0 left-0 w-full z-10 bg-white/10 backdrop-blur-md text-white flex justify-evenly gap-10 py-4 text-[30px] font-semibold">
         <Link to="/" className="transition-all">Siyahı</Link>
-        <Link to="/treyler" className="transition-all">Treyler</Link>
+        <Link to="/treyler" className="transition-all text-white" style={{ textShadow: '0px 0px 14px #fff' }}>Treyler</Link>
       </div>
 
       <div className="pt-20">
