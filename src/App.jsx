@@ -17,6 +17,7 @@ import RegisterLayout from "./layout/RegisterLayout"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login";
 import Profil from "./pages/Profil";
+import AdminLogin from "./pages/AdminLogin";
 
 
 
@@ -43,6 +44,7 @@ function App() {
 
         <Route path="/admin" element={<AdminLayout />}>
            <Route index element={<Admin />} />
+           <Route path="/admin/login" element={<AdminLogin />} />
         </Route>
 
         <Route path="/register" element={<RegisterLayout />}>
