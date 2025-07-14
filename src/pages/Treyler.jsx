@@ -77,10 +77,7 @@ function Treyler() {
                 </div>
 
                 <button
-                  disabled={!sessionId}
-                  onClick={() => {
-                    if (sessionId) navigate(`/buy-ticket/${sessionId}`);
-                  }}
+                  onClick={() => navigate(`/movies/${movie.id}`)}
                   className={`bg-[#D52B1E] rounded-[20px] text-[#D9DADB] w-[150px] h-[40px]
                     opacity-80 hover:opacity-100 duration-200
                     disabled:opacity-50 disabled:cursor-not-allowed`}
